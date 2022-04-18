@@ -1,4 +1,5 @@
 import React, { useState }   from 'react';
+import { Spinner } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword, useSendEmailVerification } from 'react-firebase-hooks/auth';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
@@ -16,8 +17,11 @@ const [
     error,
   ] = useCreateUserWithEmailAndPassword(auth ,{sendEmailVerification: true});
 
-
-
+let loadingElement;
+if(loading){
+  loadingElement=
+  <Spinner animation="border" variant="danger" />
+}
 
 
  const navigate = useNavigate();
@@ -61,6 +65,7 @@ const [
                    <input className='login-btn' type="submit" value="register" />
 
                   </form>
+                            <p className='text-center'> {loadingElement} </p>
                     <h6>  Already have an account ? <Link  to ="/login"> <span> Please Login </span> </Link>   </h6>
                  </div>
                  {errorElement}

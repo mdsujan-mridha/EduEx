@@ -1,5 +1,6 @@
 import React  from 'react';
 import { Route, Routes } from 'react-router-dom';
+import About from './AllPages/About/About';
 import CheckOut from './AllPages/CheckOut/CheckOut';
 import CourseDetails from './AllPages/CourseDetails/CourseDetails';
 import NotFound from './AllPages/NotFound/NotFound';
@@ -32,6 +33,7 @@ function App() {
                  </RequireAuth>
                }></Route>
              <Route path='/userprofile' element={<UserProfile></UserProfile>}></Route>
+             <Route path='/about' element={<About></About>}></Route>
                <Route path='/*' element={<NotFound></NotFound>}></Route>
                
              </Routes>
