@@ -5,6 +5,10 @@ import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-
 import './Login.css';
 import ScocialLogin from './ScocialLogin/ScocialLogin';
 import { Button } from 'react-bootstrap';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 const Login = () => {
 
@@ -40,7 +44,8 @@ const [
 
   const handlePasswordRest = () =>{
     const email = emailRef.current.value;
-    sendPasswordResetEmail(email);
+   sendPasswordResetEmail(email);
+    toast('sent email');
   }
 
 
@@ -82,6 +87,7 @@ const [
                 </div>
                 {errorElement}
                 <ScocialLogin></ScocialLogin>
+                <ToastContainer/>
             </div>
         </div>
     );

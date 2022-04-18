@@ -31,3 +31,24 @@
 .choice-img{
     margin-left: 20px;
 }
+
+
+    @media only screen and (max-width: 600px) {
+        
+
+        .new1{
+            display: none;
+        }
+        .choice-container{
+            display: flex;
+            flex-direction: column;
+        }
+
+ .choice-img{
+    margin-left: 0px;
+    width: 80%;
+ }
+
+
+
+      }

@@ -1,6 +1,7 @@
 import React  from 'react';
 import { Route, Routes } from 'react-router-dom';
 import About from './AllPages/About/About';
+import Blog from './AllPages/Blog/Blog';
 import CheckOut from './AllPages/CheckOut/CheckOut';
 import CourseDetails from './AllPages/CourseDetails/CourseDetails';
 import NotFound from './AllPages/NotFound/NotFound';
@@ -34,6 +35,7 @@ function App() {
                }></Route>
              <Route path='/userprofile' element={<UserProfile></UserProfile>}></Route>
              <Route path='/about' element={<About></About>}></Route>
+             <Route path='/blog' element={<Blog></Blog>}></Route>
                <Route path='/*' element={<NotFound></NotFound>}></Route>
                
              </Routes>
