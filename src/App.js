@@ -7,6 +7,7 @@ import Reviews from './AllPages/Reviews/Reviews';
 import Services from './AllPages/Services/Services';
 import './App.css';
 import Login from './Login/Login/Login';
+import UserProfile from './Login/Login/UserProfile/UserProfile';
 import Register from './Login/Register/Register';
 import RequireAuth from './Login/RequireAuth/RequireAuth';
 import Footer from './Shared/Footer/Footer';
@@ -30,7 +31,7 @@ function App() {
                    <CheckOut></CheckOut>
                  </RequireAuth>
                }></Route>
-            
+             <Route path='/userprofile' element={<UserProfile></UserProfile>}></Route>
                <Route path='/*' element={<NotFound></NotFound>}></Route>
                
              </Routes>

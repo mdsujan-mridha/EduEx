@@ -1,9 +1,10 @@
 import React, { useRef } from 'react';
 import { Link,  useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import './Login.css';
 import ScocialLogin from './ScocialLogin/ScocialLogin';
+import { Button } from 'react-bootstrap';
 
 const Login = () => {
 
@@ -13,6 +14,14 @@ const Login = () => {
         user,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+
+//  handle rest password 
+const [
+    sendPasswordResetEmail, 
+    sending,
+     error4
+    ] = useSendPasswordResetEmail(auth);
+
 
     const emailRef = useRef('');
     const passwordRef = useRef('');
@@ -26,6 +35,17 @@ const Login = () => {
 
         signInWithEmailAndPassword(email, password);
     }
+
+
+
+  const handlePasswordRest = () =>{
+    const email = emailRef.current.value;
+    sendPasswordResetEmail(email);
+  }
+
+
+
+
     if (user) {
         navigate('/home');
     }
@@ -53,10 +73,12 @@ const Login = () => {
                     <form onSubmit={handleLoginSubmit}>
                         <input ref={emailRef} className='input-field' type="email" name="" id="1" placeholder='Enter Your Email' />
                         <input ref={passwordRef} className='input-field' type="password" name="password" id="2" placeholder='Enter Password' />
+                        
                         <input className='login-btn' type="submit" value="login" />
-
+                        <Button  onClick={handlePasswordRest} className='text-decoration-none' variant="link"> Forget Password?  </Button>
                     </form>
                     <h6> You are not register ? <Link to="/register"> <span> Create an Account </span> </Link>   </h6>
+                     
                 </div>
                 {errorElement}
                 <ScocialLogin></ScocialLogin>

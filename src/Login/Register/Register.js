@@ -1,5 +1,5 @@
-import React   from 'react';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import React, { useState }   from 'react';
+import { useCreateUserWithEmailAndPassword, useSendEmailVerification } from 'react-firebase-hooks/auth';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import ScocialLogin from '../Login/ScocialLogin/ScocialLogin';
@@ -14,7 +14,11 @@ const [
     user,
     loading,
     error,
-  ] = useCreateUserWithEmailAndPassword(auth);
+  ] = useCreateUserWithEmailAndPassword(auth ,{sendEmailVerification: true});
+
+
+
+
 
  const navigate = useNavigate();
 

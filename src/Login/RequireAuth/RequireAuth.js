@@ -8,9 +8,7 @@ const RequireAuth = ({children}) => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    if(user){
-        navigate('/checkout');
-    }
+   
     if(!user){
         return <Navigate to="/login" state={{ from: location }} replace />;
     }

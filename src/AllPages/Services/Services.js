@@ -5,7 +5,7 @@ import './Services.css'
 const Services = () => {
     const [cources, setCources] = useState([]);
 
-     console.log(cources);
+    //  console.log(cources);
 
    useEffect( () =>{
 
