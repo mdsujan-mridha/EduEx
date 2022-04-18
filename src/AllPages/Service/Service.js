@@ -15,7 +15,7 @@ const Service = ({ cource }) => {
             <div className="card-container"> 
                <img className='cource-img' src={img} alt="" />
                 <h4 className='cource-title'> {cource_name}</h4>
-                <h6 className='cource-payment'> {cource_payment} </h6>
+                <h6 className='cource-payment'> <span className='text-dark'> Course Fee </span> :  {cource_payment} </h6>
                 <p className='cource_details'> {cource_details} </p>
                 <h4 className='cource-teacher'> Instructor : <span>  {teacher} </span> </h4>
                 <h5 className='cource-rating'> Rating:  {rating} </h5>
